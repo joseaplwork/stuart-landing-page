@@ -11,7 +11,7 @@ Requirements
 
 Usage Instructions
 ---
-You could just open the `index.html` file, in order to see the assignment result:
+You could just open the `index.html` file, in order to see the result:
 
 ```
 /dist/index.html
