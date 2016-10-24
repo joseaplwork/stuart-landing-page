@@ -1,0 +1,13 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+.DS_Store
+
+# Dependency directories
+node_modules
+app/bower_components/
+app/css/
+
+# Optional npm cache directory
+.npm

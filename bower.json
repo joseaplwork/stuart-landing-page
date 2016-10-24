@@ -1,0 +1,7 @@
+{
+  "name": "stuart",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "~3.1.1"
+  }
+}

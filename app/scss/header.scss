@@ -1,0 +1,230 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+.st-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  z-index: 1000;
+  margin: 20px auto;
+  padding: 0 10px;
+  color: $white;
+
+  .st-mobile-nav {
+    
+    a {
+      vertical-align: middle;
+    }
+
+    .st-current-page {
+      padding-left: 15px;
+    }
+  }
+
+  .st-nav-toggle {
+    width: 40px;
+    height: 40px;
+    float: right;
+    background-position: center;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .st-nav {
+    color: $grayscale1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+    background-color: $grayscale4;
+    padding: 10px;
+    font-weight: lighter;
+    overflow-y: auto;
+    @include transition(transform, .3s, ease-in-out);
+    @include transform-translate(-100%);
+    
+    & > ul {
+
+      & > li {
+        padding: 12px 0;
+
+         & > a {
+          color: $grayscale1;
+          text-decoration: none;
+
+          /* Media query */
+          @include desktop {
+            vertical-align: baseline;
+          }
+        }
+
+        &.st-active {
+          color: $blue;
+          & > a {
+            color: $blue;
+          }
+        }
+
+        /* Media query */
+        @include desktop {
+          display: inline-block;
+          padding: 0;
+          font-weight: lighter;
+          float: left;
+
+          &.st-item {
+            padding: 12.5px;
+
+            & > a {
+              color: $white;
+              @include transition(opacity, .3s);
+
+              &:hover {
+                opacity: 0.8;
+              }
+            }
+          }
+
+          .st-logo {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+
+    &.open {
+      @include transform-translate(0);
+    }
+
+    .st-separation {
+      height: 1px;
+      position: relative;
+      width: 100%;
+      border-bottom: 1px solid $grayscale3;
+      margin: 15px 0;
+      padding: 0px;
+
+      /* Media query */
+      @include desktop {
+        margin: 5px 0;
+      }
+    }
+
+    /* Media query */
+    @include desktop {
+      padding: 0;
+      margin: 0;
+      position: relative;
+      height: 40px;
+      background-color: transparent;
+      float: left;
+      width: 50%;
+      overflow: visible;
+      @include transform-translate(0);
+
+      .st-nested-nav {
+        position: relative;
+        
+        & a {
+          padding-right: 10px;
+          background-size: 10px;
+          background-position: right 9px;
+          padding-right: 20px;
+          background-size: 13px;
+          @include background-image('dropdown-icon');
+        }
+
+        .st-sub-menu {
+          min-width: 150px;
+          top: 90%;
+          position: absolute;
+          visibility: hidden;
+          opacity: 0;
+          left: 0;
+          padding: 15px;
+          background-color: $white;
+          border-radius: 5px;
+          @include transition(top, .3s);
+
+          &.open {
+            visibility: visible;
+            opacity: 1;
+            top: 110%;
+            @include transition(top, .3s);
+          }
+
+          & > li:not(.st-separation) {
+            padding: 10px 0;
+
+            & > a {
+              color: $grayscale1;
+              text-decoration: none;
+              color: transparentize($grayscale1, 0.3);
+              
+              &:hover {
+                color: $grayscale1;
+              }
+            }
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 15px solid #FFFFFF;
+            top: -9px;
+            left: 50%;
+            margin-left: -10px;
+          }
+        }
+      }
+    }
+  }
+
+  /* Media query */
+  @include desktop {
+    max-width: $desktop-width-container;
+    left: 50%;
+    margin-left: -($desktop-width-container / 2);
+
+    .st-desktop-nav {
+      width: 50%;
+      float: right;
+      text-align: right;
+      height: 40px;
+
+      ul {
+
+        li {
+          display: inline-block;
+          font-weight: lighter;
+          
+          a {
+            vertical-align: baseline;
+          }
+
+          &.st-item {
+            padding: 12.5px;
+
+            a {
+              color: $white;
+              text-decoration: none;
+              @include transition(opacity, .3s);
+
+              &:hover {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

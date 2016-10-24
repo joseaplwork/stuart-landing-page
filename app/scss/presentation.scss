@@ -1,0 +1,66 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+.st-presentation {
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: relative;
+  display: table;
+  background-color: transparentize($blue, 0.7);
+  background-size: cover;
+  background-attachment: fixed;
+  @include background-image('hero-background-photo', 'jpg');
+  
+  .st-pm {
+    max-width: $desktop-width;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    h1 {
+      color: $white;
+      margin: 10px 0;
+    }
+
+    p{
+      font-size: 22px;
+      color: $grayscale5;
+      margin: 25px 0;
+
+      /* Media query */
+      @include desktop {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .st-video-bk {
+    display: none;
+
+    /* Media query */
+    @include desktop {
+      display: block;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -100;
+      @include transform(translateX(-50%) translateY(-50%) scale(1.4));
+    }
+  }
+
+  /* Media query */
+  @include desktop {
+    background-image: none !important;
+  }
+}

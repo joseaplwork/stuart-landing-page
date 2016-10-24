@@ -1,0 +1,35 @@
+{
+  "name": "stuart",
+  "version": "1.0.0",
+  "description": "Landing page",
+  "scripts": {
+    "install-assets": "bower install",
+    "dev": "gulp",
+    "build": "gulp build"
+  },
+  "keywords": [
+    "landing-page",
+    "js",
+    "css",
+    "html"
+  ],
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/joseaplwork/stuart-landing-page"
+  },
+  "author": "joseaplwork",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "browser-sync": "^2.17.5",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-html-replace": "^1.6.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "main-bower-files": "^2.13.1"
+  }
+}

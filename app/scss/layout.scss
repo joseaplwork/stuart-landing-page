@@ -1,0 +1,191 @@
+@import "variables.scss";
+@import "mixins.scss";
+@import "reset.scss";
+
+@font-face {
+    font-family: "DINPro";
+    src: url("../fonts/DINPro-Light.eot");
+    src: url("../fonts/DINPro-Light.eot?#iefix") format("embedded-opentype"),url("../fonts/DINPro-Light.woff") format("woff"),url("../fonts/DINPro-Light.ttf") format("truetype"),url("../fonts/DINPro-Light.svg#62f75ccd04c776030ca293d074e92944") format("svg");
+    font-style: normal;
+    font-weight: 300
+}
+
+@font-face {
+    font-family: "DINPro";
+    src: url("../fonts/DINPro.eot");
+    src: url("../fonts/DINPro.eot?#iefix") format("embedded-opentype"),url("../fonts/DINPro.woff") format("woff"),url("../fonts/DINPro.ttf") format("truetype"),url("../fonts/DINPro.svg#3cb472b1a9451e4fa699bb9276f5d2ad") format("svg");
+    font-style: normal;
+    font-weight: 400
+}
+
+@font-face {
+    font-family: "DINPro";
+    src: url("../fonts/DINPro-Medium.eot");
+    src: url("../fonts/DINPro-Medium.eot?#iefix") format("embedded-opentype"),url("../fonts/DINPro-Medium.woff") format("woff"),url("./fonts/DINPro-Medium.ttf") format("truetype"),url("./fonts/DINPro-Medium.svg#43a856eecb2199e640a1a5bf1dc4a1e7") format("svg");
+    font-style: normal;
+    font-weight: 500
+}
+
+html, body {
+  font-family: "DINPro", sans-serif;
+  font-size: $font-size;
+  height: 100%;
+  max-width: 100%;
+
+  /* Media query */
+  @include desktop {
+    font-size: $font-size * $incremental-s;
+  }
+}
+
+/* Utils */
+$h1-prop: 2;
+h1,
+.st-large {
+  font-size: $font-size * $h1-prop;
+
+  @include desktop {
+    font-size: $font-size * ($h1-prop * $incremental-l);
+  }
+}
+
+$h2-prop: 1.5;
+h2,
+.st-medium {
+  font-size: $font-size * $h2-prop;
+  @include desktop {
+    font-size: $font-size * ($h2-prop * $incremental-l);
+  }
+}
+
+$h3-prop: 1.15;
+h3,
+.st-normal {
+  font-size: $font-size * $h3-prop;
+  @include desktop {
+    font-size: $font-size * ($h3-prop * $incremental-l);
+  }
+}
+
+
+.st-bold {
+  font-weight: bold;
+}
+
+.st-btn{
+  @include button-bg($blue);
+}
+
+.st-margin-sm {
+  margin: 5px 0;
+}
+
+.st-margin-md {
+  margin: 20px 0;
+}
+
+.st-margin-lg {
+  margin: 30px 0;
+}
+
+.st-margin-xl {
+  margin: 50px 0;
+}
+
+.st-padding-sm {
+  padding: 5px 0;
+}
+
+.st-padding-md {
+  padding: 20px 0;
+}
+
+.st-padding-lg {
+  padding: 30px 0;
+}
+
+.st-padding-xl {
+  padding: 50px 0;
+}
+
+.st-section {
+  line-height: 20px;
+  text-align: center;
+  position: relative;
+  min-height: 90px;
+}
+
+.st-link {
+  color: $blue;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+
+  &.st-next {
+    position: relative;
+    @include background-image('more-icon');
+    background-position: right 7px;
+    background-size: 9px 9px;
+    padding-right: 12px;
+    
+    @include desktop {
+      background-position: right 6px;
+      background-size: 10px 10px;
+      padding-right: 20px;
+    }
+  }
+}
+
+.st-icon {
+  background-position: center;
+  background-color: transparent;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.st-phone {
+  @include background-image('phone-icon');
+}
+
+
+.st-menu {
+  @include background-image('menu-icon');
+}
+
+
+.st-close {
+  @include background-image('close-icon');
+}
+
+.st-inline-block{
+  display: inline-block;
+}
+
+.st-table-box {
+  display: table;
+  
+  &.st-100 { width: 100%; }
+
+  &.st-50 { width: 50%; }
+
+  .st-cell-center {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+* [class*="st-mobile"] {
+  display: block !important;
+  @include desktop {
+    display: none !important;
+  }
+}
+
+* [class*="st-desktop"] {
+  display: none !important;
+  @include desktop {
+    display: block !important;
+  }
+}
